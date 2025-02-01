@@ -1,0 +1,34 @@
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+swiper-slide {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: aqua;
+}
+.title1 {
+color: red;
+}
+
+.bg-color-slide {
+background-color: magenta;
+}
+.user-avatar {
+width: 30px;
+height: 30px;
+}
+
+.image-post {
+margin: 0 auto;
+display: block;
+}
+ion-fab {
+ion-fab-button{
+  --background: #f4f4f4;
+  --color: red;
+}
+
+}

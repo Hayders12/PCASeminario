@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+      
+      <div class="avatar-container">
+        <img class="avatar" alt="Avatar" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </div>
+
+      <ion-item fill="outline">
+        <ion-input 
+          aria-label="Email"
+          label="Email" 
+          labelPlacement="floating" 
+          placeholder="example@email.com" 
+          formControlName="email">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('email')?.dirty">
+        <ion-label color="danger" *ngIf="loginForm.get('email')?.hasError('required')">
+          El email es obligatorio
+        </ion-label>
+        <ion-label color="danger" *ngIf="loginForm.get('email')?.hasError('email')">
+          El formato del email no es válido
+        </ion-label>
+      </div>
+
+      <ion-item fill="outline">
+        <ion-input 
+          aria-label="Contraseña"
+          label="Contraseña" 
+          labelPlacement="floating" 
+          placeholder="**********" 
+          formControlName="password" 
+          type="password">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('password')?.dirty">
+        <ion-label color="danger" *ngIf="loginForm.get('password')?.hasError('required')">
+          La contraseña es obligatoria
+        </ion-label>
+        <ion-label color="danger" *ngIf="loginForm.get('password')?.hasError('minlength')">
+          La contraseña debe tener al menos 6 caracteres
+        </ion-label>
+      </div>
+
+      <ion-button type="submit" expand="block" [disabled]="!loginForm.valid">Login</ion-button>
+
+      <ion-button fill="clear" routerLink="/register">¿No tienes una cuenta? Regístrate</ion-button>
+
+    </form>
+
+    <p class="ion-text-center">{{ errorMessage }}</p>
+  </div>
+</ion-content>

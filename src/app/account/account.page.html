@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title> <!-- Título centrado -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Mostrar nombre y apellido en modo normal -->
+  <h1 *ngIf="!isEditing">{{user_data.name}} {{user_data.lastname}}</h1>
+
+  <!-- Mostrar campos de edición en modo de edición -->
+  <div *ngIf="isEditing">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="editedName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="editedlastname"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Avatar y opciones de imagen -->
+  <ion-avatar (click)="presentPhotoOptions()">
+    <img [src]="user_data.image ? user_data.image : 'assets/images/default-avatar.jpeg'" />
+  </ion-avatar>
+
+  <!-- Información adicional -->
+  <p>Seguidores: {{user_data.followers.length}}</p>
+  <p>Siguiendo: {{user_data.followees.length}}</p>
+
+  <!-- Contenedor para los botones -->
+  <div class="button-container">
+    <!-- Botón para iniciar la edición -->
+    <ion-button *ngIf="!isEditing" (click)="startEditing()">Actualizar Perfil</ion-button>
+
+    <!-- Botones para cancelar o guardar cambios -->
+    <div *ngIf="isEditing" class="edit-buttons">
+      <ion-button (click)="cancelEditing()">Cancelar</ion-button>
+      <ion-button (click)="saveChanges()">Guardar Cambios</ion-button>
+    </div>
+  </div>
+</ion-content>

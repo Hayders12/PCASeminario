@@ -1,0 +1,55 @@
+ion-header {
+    ion-toolbar {
+      background-color: #1f1f1f; // Color oscuro para la barra de herramientas
+      ion-title {
+        color: #fff; // Color blanco para el título
+      }
+      ion-buttons {
+        ion-menu-button {
+          color: #fff; // Color blanco para el botón del menú
+        }
+      }
+    }
+  }
+  
+  ion-content {
+    background-color: #2c2c2c; // Fondo oscuro para el contenido
+    color: #fff; // Texto blanco para el contenido
+  
+    ion-toolbar {
+      --background: #3a3a3a; // Fondo oscuro para la barra de búsqueda
+      ion-searchbar {
+        --background: #4a4a4a; // Fondo más oscuro para el searchbar
+        --placeholder-color: #bbb; // Color gris para el texto de placeholder
+        color: #fff; // Texto blanco
+      }
+    }
+  
+    ion-list {
+      ion-item {
+        --background: #3a3a3a; // Fondo oscuro para los items
+        border-radius: 8px;
+        margin: 8px 0;
+  
+        ion-avatar {
+          --border-color: #fff; // Borde blanco para el avatar
+          img {
+            border-radius: 50%;
+            border: 2px solid #fff; // Borde blanco alrededor de la imagen
+          }
+        }
+  
+        ion-label {
+          h2 {
+            color: #fff; // Texto blanco para los nombres
+          }
+        }
+  
+        ion-button {
+          --background: #4a4a4a; // Fondo oscuro para el botón de seguir
+          --color: #fff; // Color blanco para el icono del botón
+        }
+      }
+    }
+  }
+  
